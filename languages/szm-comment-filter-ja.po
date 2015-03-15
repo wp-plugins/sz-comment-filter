@@ -1,0 +1,97 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: sz-comment-filter 1.00\n"
+"POT-Creation-Date: 2015-03-10 14:15+0900\n"
+"PO-Revision-Date: 2015-03-10 16:23+0900\n"
+"Last-Translator: SzMake <sakamoto@szmake.net>\n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: sz-comment-filter\n"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:56
+msgid "Please enable javascript."
+msgstr "JavaScriptを有効にしてください。"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:58
+msgid "Or you can post by following procedure."
+msgstr "あるいは下記手順で投稿できます。"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:60
+msgid "1.Please click on the link [GET TOKEN-CODE],then it is displayed."
+msgstr "1.「トークンコード取得」を押すと枠内にトークンコードが表示されます"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:62
+msgid "2.Enter displayed token-code to \"TOKEN INPUT\"."
+msgstr "2.表示されたトークン文字を「投稿確認トークン入力」へ入力します"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:65
+msgid "GET TOKEN-CODE"
+msgstr "トークンコード取得"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:68
+msgid "TOKEN INPUT"
+msgstr "投稿確認トークン入力"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:79
+msgid "Input unnecessary."
+msgstr "入力不要"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:115
+msgid "Go back"
+msgstr "前のページへ戻る"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:115
+msgid " and try again."
+msgstr "　もう一度お試しください。"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:122
+msgid "Error: trackbacks are disabled."
+msgstr "エラー：トラックバック投稿はできません。"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:131
+msgid "Error: field should be empty. [set invisible value]"
+msgstr "エラー：入力不要項目が空ではありません。[set invisible value]"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:137
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:142
+msgid "Comment was blocked because this post is similar to spam-post."
+msgstr "スパム投稿と判断されブロックされました。"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:45
+msgid "Total %s spam comments were blocked by sz-comment-filter."
+msgstr "通算 %s 回スパムコメント投稿をブロックしました。(by sz-comment-filter)"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:49
+msgid "spam-counter reset"
+msgstr "ブロック回数リセット"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:49
+msgid "Are you sure you want to reset?"
+msgstr "本当にリセットしてよろしいですか？"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:54
+msgid "Log of blocked spam comment."
+msgstr "ブロックしたスパムコメント履歴"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:54
+msgid "The latest"
+msgstr "直近の"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:54
+msgid "cases"
+msgstr "回"
+
+#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:143
+msgid "reports of blocked spam-post."
+msgstr "スパム投稿のブロック状況"
+
+#. Description of the plugin/theme
+msgid "No spam in comments.You don't want to use a computer CAPTCHA,blocked by internal invisible token-code with ajax."
+msgstr "内部的なトークンコードとAjaxによりスパムコメントをブロックします。CHAPCHAを使う必要ありません。"
