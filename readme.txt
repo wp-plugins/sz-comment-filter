@@ -43,20 +43,19 @@ When you choose 'Comments' in the admin menu, it's shown report. e.g."Total 3 sp
 
 = How does sz-comment-filter plugin block the spam comment? =
 
-The blocking function is implemented by JavaScript(AJAX) and invisible 2 input forms.
+The blocking function is implemented by JavaScript(AJAX) and invisible 2 input field.
 
 
-= What is the first invisible input-form? =
+= What is the first invisible input-field? =
 
-The first input-form is input token-code by JavaScript.When "post comment" button was pushed, AJAX goes to have token-code.
+The first input-field is input token-code by JavaScript.When "post comment" button was pushed, AJAX goes to have token-code.
 This fields is hidden by JavaScript.
 The spam-bots can not set valid token-code. - the comment will be blocked because it is spam-bots.
 
-If the spammer will fill this trap-field with anything - the comment will be rejected because it is spam-bots.
 
-= What is the secound invisible input-form? =
+= What is the secound invisible input-field? =
 
-The secound input-form is honey pot fields.this fields is hidden by css-define.
+The secound input-field is honey pot fields.this fields is hidden by css-define.
 This field is hidden for the user and user will not input to it.so it's empty everytime.
 But spam-bots is tricked, and something is input - the comment will be rejected because it is spam-bots.
 
@@ -93,7 +92,7 @@ User can post comment without JavaScript.when must be enter token-code manualy.
 
 == Contact ==
 
-email to contact[at]szmake.net
-twitter @sxmtz
+email to contact[at]szmake.net  
+twitter @sxmtz  
 
 
