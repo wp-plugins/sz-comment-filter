@@ -112,12 +112,12 @@ User can post comment without JavaScript.when must be enter token-code manualy.
 = 1.1.0 =
 * Modified display the blocking log in admin menu.
 * Fixed the naming of the function name.
-*(ja)ブロックしたコメント履歴の表示修正
-*(ja)関数名の命名を修正
+* (ja)ブロックしたコメント履歴の表示修正
+* (ja)関数名の命名を修正
 
 = 1.0.0 =
 * The first release.
-*(ja)初回版リリース
+* (ja)初回版リリース
 
 == Contact ==
 
