@@ -2,96 +2,100 @@ msgid ""
 msgstr ""
 "Project-Id-Version: sz-comment-filter 1.00\n"
 "POT-Creation-Date: 2015-03-10 14:15+0900\n"
-"PO-Revision-Date: 2015-03-10 16:23+0900\n"
-"Last-Translator: SzMake <sakamoto@szmake.net>\n"
+"PO-Revision-Date: 2015-03-25 11:56+0900\n"
+"Last-Translator: SzMake <contact@szmake.net>\n"
 "Language-Team: \n"
-"Language: ja\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 1.7.5\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-SearchPath-0: sz-comment-filter\n"
+"X-Poedit-SearchPath-0: ..\n"
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:56
+#: ../sz-comment-filter/sz-comment-filter.php:56
 msgid "Please enable javascript."
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:58
+#: ../sz-comment-filter/sz-comment-filter.php:58
 msgid "Or you can post by following procedure."
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:60
-msgid "1.Please click on the link [GET TOKEN-CODE],then token-code is displayed."
+#: ../sz-comment-filter/sz-comment-filter.php:60
+msgid "1.Please click on the link [GET TOKEN-CODE],then it is displayed."
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:62
+#: ../sz-comment-filter/sz-comment-filter.php:62
 msgid "2.Enter displayed token-code to \"TOKEN INPUT\"."
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:65
+#: ../sz-comment-filter/sz-comment-filter.php:65
 msgid "GET TOKEN-CODE"
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:68
+#: ../sz-comment-filter/sz-comment-filter.php:68
 msgid "TOKEN INPUT"
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:79
-msgid "Input unnecessary."
+#: ../sz-comment-filter/sz-comment-filter.php:79
+msgid "Honeypot(Input unnecessary)"
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:115
+#: ../sz-comment-filter/sz-comment-filter.php:115
 msgid "Go back"
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:115
+#: ../sz-comment-filter/sz-comment-filter.php:115
 msgid " and try again."
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:122
+#: ../sz-comment-filter/sz-comment-filter.php:122
 msgid "Error: trackbacks are disabled."
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:131
+#: ../sz-comment-filter/sz-comment-filter.php:131
 msgid "Error: field should be empty. [set invisible value]"
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:137
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/sz-comment-filter.php:142
+#: ../sz-comment-filter/sz-comment-filter.php:137
+#: ../sz-comment-filter/sz-comment-filter.php:142
 msgid "Comment was blocked because this post is similar to spam-post."
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:45
-msgid "Total %s spam comments were blocked by sz-comment-filter."
+#: ../sz-comment-filter/szmcf-admin.php:45
+msgid "Total %s spam comments were blocked."
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:49
-msgid "spam-counter reset"
+#: ../sz-comment-filter/szmcf-admin.php:50
+msgid "Donate"
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:49
+#: ../sz-comment-filter/szmcf-admin.php:60
+msgid "Blocked Count Reset"
+msgstr ""
+
+#: ../sz-comment-filter/szmcf-admin.php:60
 msgid "Are you sure you want to reset?"
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:54
+#: ../sz-comment-filter/szmcf-admin.php:65
 msgid "Log of blocked spam comment."
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:54
+#: ../sz-comment-filter/szmcf-admin.php:65
 msgid "The latest"
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:54
+#: ../sz-comment-filter/szmcf-admin.php:65
 msgid "cases"
 msgstr ""
 
-#: /Users/sakamotz/vmwww/wp4.1.1-ja/wp-content/plugins/sz-comment-filter/szmcf-admin.php:143
+#: ../sz-comment-filter/szmcf-admin.php:143
 msgid "reports of blocked spam-post."
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "No spam in comments.You don't want to use a computer CAPTCHA,blocked by internal invisible token-code with ajax."
+msgid "No spam in comments. blocked by Invisible internal token-code with ajax.It blocks spam without using CAPTCHA."
 msgstr ""
