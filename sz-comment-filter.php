@@ -1,17 +1,17 @@
 <?php
 /*
-Plugin Name: sz-comment-filter
+Plugin Name: Sz Comment Filter
 Plugin URI: wordpress.org/plugins/sz-comment-filter/
-Description: No spam in comments. blocked by Invisible internal token-code with ajax.
+Description: No spam in comments. blocked by Invisible internal token-code with ajax.It blocks spam without using CAPTCHA.
 Author: SzMake
-Version: 1.0.0
+Version: 1.1.1
 Author URI: http://www.szmake.net/
-Text Domain: szm-spam-filter
+Text Domain: szm-comment-filter
 Domain Path: /languages/
 License: GPLv3
 */
 
-define('SZMCF_VERSION', '1.0.0');
+define('SZMCF_VERSION', '1.1.1');
 define('SZMCF_DOMAIN', 'szm-comment-filter');
 define('SZMCF_PLUGIN_URL', untrailingslashit( plugins_url( '', __FILE__ ) ) );
 define('SZMSF_KEYSEP', '-');
@@ -27,7 +27,6 @@ $szmcf_settings = array(
 
 include('szmcf-admin.php');
 include('szmcf-functions.php');
-
 
 function szmcf_init() {
 	 load_plugin_textdomain( SZMCF_DOMAIN, false, basename( dirname( __FILE__ ) ).'/languages' );
@@ -58,8 +57,8 @@ function szmcf_enqueue_script() {
 	*/
 
 	if (is_singular() && comments_open()) { // load script only for pages with comments form
-		//wp_enqueue_script('szm-spam-filter', szmcf_plugin_url('js/sz-comment-filter1.0.js'), array('jquery', 'jquery-form'), null, true);
-		wp_enqueue_script('szm-spam-filter', szmcf_plugin_url('js/sz-comment-filter1.0.js'), array('jquery'), null, true);
+		//wp_enqueue_script('szm-spam-filter', szmcf_plugin_url('js/sz-comment-filter.js'), array('jquery', 'jquery-form'), SZMCF_VERSION, true);
+		wp_enqueue_script('szm-spam-filter', szmcf_plugin_url('js/sz-comment-filter.js'), array('jquery'), SZMCF_VERSION, true);
 	}
 	
 
@@ -99,7 +98,7 @@ function szmcf_form_customizer() {
 		echo '<p class="szmcf-hunnypot" id="szmcf-hunnypot" style="display: none;">';
 	}
 	echo '
-		<label for="szmcf-email-website-url">'.__('Input unnecessary.', SZMCF_DOMAIN).'</label>
+		<label for="szmcf-email-website-url">'.__('Honeypot(Input unnecessary)', SZMCF_DOMAIN).'</label>
 		<input type="text" name="szmcf-email-website-url" id="szmcf-email-website-url" class="szmcf-param" value="" />
 	</p>'.PHP_EOL;
 
@@ -150,7 +149,7 @@ function szmcf_chk_comment($commentdata) {
 
 		if ( ! empty($_POST['szmcf-email-website-url'])) {
 			$spam_flag = true;
-			$spam_rules = 'set invisible value';
+			$spam_rules = 'honeypot[set data]';
 			$result_error_message .= __('Error: field should be empty. [set invisible value]', SZMCF_DOMAIN).'<br> '.PHP_EOL;
 
 		} else if( empty($_POST['szmcf-key'])){
@@ -166,18 +165,45 @@ function szmcf_chk_comment($commentdata) {
 
 	}
 
+
 	if ($spam_flag) { 
 		$spam_req = array();
 		$spam_req['at_blocked'] = current_time('Y/m/d H:i:s');
 		$spam_req['ip'] = $_SERVER['REMOTE_ADDR'];
 		$spam_req['rules'] = $spam_rules;
 		$spam_req['post_ID'] = $comment_post_ID;
-		$spam_req['inp_author'] = $comment_author;
-		$spam_req['inp_email'] = $comment_author_email;
-		$spam_req['inp_url'] = $comment_author_url;
-		$spam_req['comment'] = $comment_content;
 
-		szmcf_reglog($spam_req);
+		$post_data_array = array();
+		$flg_was_input = false;
+		foreach( $_POST as $key=>$value){
+			if(in_array($key, array(	 'submit'
+										,'comment_post_ID'
+										,'comment_parent'
+									) )
+				){
+				continue;
+			}
+			if(is_string($key) && is_string($value)){
+				$reg_fieldname = $key;
+				if( 'szmcf-key' == $reg_fieldname ){
+					$reg_fieldname = '[anti-spam token]';
+				} else if( 'szmcf-email-website-url' == $reg_fieldname ){
+					$reg_fieldname = '[anti-spam honeypot]';
+				}
+				$post_data_array[$reg_fieldname] = $value;	
+				
+				if(strlen($value)>0){
+					$flg_was_input = true;
+				}
+			}
+		}
+		$spam_req['post_data_array'] = $post_data_array;		
+		
+		// if all empty then no logreg...
+		if($flg_was_input){
+			szmcf_reglog($spam_req);
+		}
+		
 		wp_die( $result_pre_error_message . $result_error_message ); // die
 	}
 	

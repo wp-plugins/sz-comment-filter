@@ -10,8 +10,9 @@
     overflow: hidden;
 }
 #szmcf_loglist .dhead1{ width:240px;height: 1.4em;float:left;} 
-#szmcf_loglist .dhead2{ width:200px;height: 1.4em;float:left;}
-#szmcf_loglist .dhead3{ width:240px;height: 1.4em;float:left;}
+#szmcf_loglist .dhead2{ width:170px;height: 1.4em;float:left;}
+#szmcf_loglist .dhead3{ width:110px;height: 1.4em;float:left;}
+#szmcf_loglist .dhead4{ width:240px;height: 1.4em;float:left;}
 
 #szmcf_loglist .ditail {
     padding: 5px;
@@ -21,12 +22,40 @@
     background: #aaa;
     overflow: hidden;
 }
-#szmcf_loglist .ddtail1{
-    width : 80%;
-    float:left;
-} 
-#szmcf_loglist .ddtail2{
-    width:120px;
-    height: 4.4em;
-    float:right;
+
+
+#szmcf_loglist table{
+    width: 100%;
+    border-collapse: collapse;
+}
+#szmcf_loglist table,
+#szmcf_loglist table th,
+#szmcf_loglist table td
+{
+    border: solid 1px #777;
+}
+#szmcf_loglist table th,
+#szmcf_loglist table td
+{
+    padding-left: 0.5em;
+    padding-right: 0.5em;   
+}
+#szmcf_loglist table th
+{
+    background-color: #ccc;
+    text-align: center;
+}
+
+#szmcf_loglist .field_name 
+{
+    width: 10em;
+}
+
+#szmcf_loglist .dathead a{
+    color: #bbe;
+}
+
+#szmcf_loglist table td.post_key
+{
+    white-space: nowrap;
 }
