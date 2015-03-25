@@ -15,13 +15,13 @@ function szmcf_keygen(){
     $ret = '';
     $ipoct_arr = explode('.',$_SERVER['REMOTE_ADDR']);
     // a-seg
-    $value_a=make_seg_a();
+    $value_a=szmcf_make_seg_a();
 
     // b-seg
     $value_b=substr(time(), -5);
     
     // c-seg
-    $value_c=make_seg_c($value_a, $value_b);
+    $value_c=szmcf_make_seg_c($value_a, $value_b);
 
     $ret = $value_a.SZMSF_KEYSEP.$value_b.SZMSF_KEYSEP.$value_c;
 
@@ -30,7 +30,7 @@ function szmcf_keygen(){
 }
 
 // make key of segment a 
-function make_seg_a(){
+function szmcf_make_seg_a(){
 	$ipoct_arr = explode('.',$_SERVER['REMOTE_ADDR']);
     // a-seg
     $value_a=0;
@@ -41,7 +41,7 @@ function make_seg_a(){
 }
 
 // make key of segment c 
-function make_seg_c($value_a, $value_b){
+function szmcf_make_seg_c($value_a, $value_b){
 	global $szmcf_settings;
 	return substr( md5($value_a+$value_b+$szmcf_settings['allow_trackbacks']), -3);
 }
@@ -55,8 +55,8 @@ function szmcf_keychk($chk_key){
 			$req_a=$arr[0];
 			$req_b=$arr[1];
 			$req_c=$arr[2];
-			if( $req_c==make_seg_c($req_a, $req_b) ){
-				if($req_a==make_seg_a()){
+			if( $req_c==szmcf_make_seg_c($req_a, $req_b) ){
+				if($req_a==szmcf_make_seg_a()){
 					$keytm = time();
 					$keytm = intval( substr($keytm, 0, (-1)*strlen($req_b) ).$req_b );
 					if( ( $keytm >= time() - 180 ) // before gen 180 sec
@@ -127,7 +127,7 @@ function szmcf_get_loglist() {
 
 
 	$idx=0;
-	if( 9 > $blkcnt  ){
+	if( 10 > $blkcnt  ){
 		for($datidx=$blkcnt-1;$datidx>=0;$datidx--){
 			$keyname = 'logdat_'.strval($datidx);
 			if( array_key_exists($keyname, $szmcf_data) ){
@@ -137,20 +137,18 @@ function szmcf_get_loglist() {
 		}
 	} else {
 		$datidx = $nxlidx;
-		$datidx--;
-		if($datidx<0){
-			$datidx = 9;
-		}
 		do {
+			$datidx--;
+			if($datidx<0){
+				$datidx=9;
+			}
+
 			$keyname = 'logdat_'.strval($datidx);
 			if( array_key_exists($keyname, $szmcf_data) ){
 				$ret_array[$idx]=unserialize($szmcf_data[$keyname]);
 				$idx++;
 			}
-			$datidx--;
-			if($datidx<0){
-				$datidx=9;
-			}
+			
 		} while($datidx!=$nxlidx);
 	}
 

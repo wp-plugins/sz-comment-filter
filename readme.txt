@@ -1,10 +1,10 @@
 === Sz Comment Filter ===
 Contributors: SzMake
 Donate link: http://wp.szmake.net/donate/
-Tags: comments, spam, bot, ajax, token
+Tags: spam, spammer, comment, comments, comment-spam, block-spam, spambot, spam-bot, bot, token
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -12,13 +12,35 @@ No spam in comments. blocked by Invisible internal token-code with ajax.This is 
 
 == Description ==
 
+In English:  
+
 No spam in comments. blocked by Invisible internal token-code with ajax.
 
-this plugin blocks 100% of automatic spam messages from spam-bots without CAPTCHA.
+This plugin blocks 100% of spam messages in the author of the environment.
+
+It blocks spam without using the CAPTCHA input-field.
+
+There is no modification of display the comment form.
 
 (but the commnet which is posted by spammers manually via browser is not blocked by this plugin)
 
-There is no modification of display the comment form.
+
+In Japanese:  
+
+このプラグインはコメント投稿時にAjax処理でスパムコメントを投稿エラーとしてブロックするプラグインです。
+
+作者の環境では、今のところこのプラグインで100％スパムBOT投稿がブロックできています。
+
+一般的なスパム対策としてAkismetプラグインがありますがブロックされるのは９割程度で100%は止まりませんでした。
+
+別の方法としてCAPTCHA系のプラグインを使いBot対策する手段もありますが、こちらはほぼ100%スパムBotからの投稿はブロックされますがユーザーに煩わしい確認文字入力に毎回協力してもらう必要がありました。 このプラグインでは、見えない入力欄を用意してコメント投稿時にjavascriptでCAPTCHA入力に変わる固有の確認トークン入力処理をで行うことでスパムBotからの投稿をブロックします。
+
+利用ユーザーのコメントフォームの見え方は変わりません。 
+
+(しかし、ブラウザを介した手入力によるスパム投稿はこのプラグインではブロックできません)
+
+[日本語の説明ページ](http://wp.szmake.net/sz-comment-filtter/ "Documentation in Japanese")
+
 
 = Translators =
 
@@ -87,8 +109,15 @@ User can post comment without JavaScript.when must be enter token-code manualy.
 
 == Changelog ==
 
-= 1.0 =
+= 1.1.0 =
+* Modified display the blocking log in admin menu.
+* Fixed the naming of the function name.
+*(ja)ブロックしたコメント履歴の表示修正
+*(ja)関数名の命名を修正
+
+= 1.0.0 =
 * The first release.
+*(ja)初回版リリース
 
 == Contact ==
 
