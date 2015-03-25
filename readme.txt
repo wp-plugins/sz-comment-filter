@@ -4,7 +4,7 @@ Donate link: http://wp.szmake.net/donate/
 Tags: spam, spammer, comment, comments, comment-spam, block-spam, spambot, spam-bot, bot, token
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -27,7 +27,7 @@ There is no modification of display the comment form.
 
 In Japanese:  
 
-このプラグインはコメント投稿時にAjax処理でスパムコメントを投稿エラーとしてブロックするプラグインです。
+このプラグインはコメント投稿時にAjaxを使ってスパムロボットによる投稿コメントか判別し自動でブロックするプラグインです。
 
 作者の環境では、今のところこのプラグインで100％スパムBOT投稿がブロックできています。
 
@@ -37,9 +37,9 @@ In Japanese:
 
 利用ユーザーのコメントフォームの見え方は変わりません。 
 
-(しかし、ブラウザを介した手入力によるスパム投稿はこのプラグインではブロックできません)
+(残念ながらこのプラグインではブラウザを介した手入力によるスパム投稿はブロックできません)
 
-[日本語の説明ページ](http://wp.szmake.net/sz-comment-filtter/ "Documentation in Japanese")
+[日本語の詳細説明ページはこちら](http://wp.szmake.net/sz-comment-filtter/ "Documentation in Japanese")
 
 
 = Translators =
@@ -108,6 +108,9 @@ User can post comment without JavaScript.when must be enter token-code manualy.
 2. The display which is JavaScript disabled browser.
 
 == Changelog ==
+
+= 1.1.1 =
+* [FIX] readme.txt markdown format.
 
 = 1.1.0 =
 * Modified display the blocking log in admin menu.

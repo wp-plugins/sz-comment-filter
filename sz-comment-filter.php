@@ -4,14 +4,14 @@ Plugin Name: Sz Comment Filter
 Plugin URI: wordpress.org/plugins/sz-comment-filter/
 Description: No spam in comments. blocked by Invisible internal token-code with ajax.It blocks spam without using CAPTCHA.
 Author: SzMake
-Version: 1.1.0
+Version: 1.1.1
 Author URI: http://www.szmake.net/
 Text Domain: szm-comment-filter
 Domain Path: /languages/
 License: GPLv3
 */
 
-define('SZMCF_VERSION', '1.1.0');
+define('SZMCF_VERSION', '1.1.1');
 define('SZMCF_DOMAIN', 'szm-comment-filter');
 define('SZMCF_PLUGIN_URL', untrailingslashit( plugins_url( '', __FILE__ ) ) );
 define('SZMSF_KEYSEP', '-');
