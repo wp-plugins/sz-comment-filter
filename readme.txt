@@ -4,7 +4,7 @@ Donate link: http://wp.szmake.net/donate/
 Tags: spam, spammer, comment, comments, comment-spam, block-spam, spambot, spam-bot, bot, token
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -75,9 +75,9 @@ This fields is hidden by JavaScript.
 The spam-bots can not set valid token-code. - the comment will be blocked because it is spam-bots.
 
 
-= What is the secound invisible input-field? =
+= What is the second invisible input-field? =
 
-The secound input-field is honey pot fields.this fields is hidden by css-define.
+The second input-field is honey pot fields.this fields is hidden by css-define.
 This field is hidden for the user and user will not input to it.so it's empty everytime.
 But spam-bots is tricked, and something is input - the comment will be rejected because it is spam-bots.
 
@@ -88,7 +88,7 @@ it is displayed count of blocked. and show the rejected post-data.(The latest 10
 
 = Does the log data becomes too large? =
 
-the log data are max 10 records.It's overwritten from old data.
+The log data are max 10 records.It's overwritten from old data.
 
 
 = What about trackback post? =
@@ -108,6 +108,9 @@ User can post comment without JavaScript.when must be enter token-code manualy.
 2. The display which is JavaScript disabled browser.
 
 == Changelog ==
+
+= 1.1.2 =
+* [FIX] css for display the blocking log(FromIP).
 
 = 1.1.1 =
 * [FIX] readme.txt markdown format.
