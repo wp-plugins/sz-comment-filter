@@ -42,18 +42,28 @@ function szmcf_admin_notice() {
 
 			<div class="update-nag szmcf-panel-info">
 				<p style="margin: 0;">
-					<?php echo sprintf( __( 'Total %s spam comments were blocked by sz-comment-filter.', SZMCF_DOMAIN), number_format( $blocked_total ) ); ?>
+					<div style="overflow: hidden;">
+					<div style="float: left;">
+					<h4>Sz Comment Filter Report</h4>
+					</div>
+					<div style="float: right;">
+					<p><a href="http://wp.szmake.net/donate/" class="button button-primary" target="_blank"><?php echo esc_html( __( 'Donate', SZMCF_DOMAIN ) ) ?></a></p>
+					</div>
+					<div style="float: right; margin: 0px 8px;">
+					<img src='<?php echo szmcf_plugin_url( 'images/blkfrogman.png' ) ?>' width='48' height='48' align='top'>
+					</div>
+					</div>
+					<?php echo sprintf( __( 'Total %s spam comments were blocked.', SZMCF_DOMAIN), number_format( $blocked_total ) ); ?>
 					<?php if($log_itemcnt>0): ?>
 					<form method="post" style="padding: 20px 0 5px 0;">
 						<input type="hidden" name="szmcf_option_submit" value="9" />
-						<input type="submit" class="button" value="<?php _e('spam-counter reset', SZMCF_DOMAIN); ?>" onclick='return confirm("<?php _e('Are you sure you want to reset?', SZMCF_DOMAIN) ?>")' />
+						<input type="submit" class="button" value="<?php _e('Blocked Count Reset', SZMCF_DOMAIN); ?>" onclick='return confirm("<?php _e('Are you sure you want to reset?', SZMCF_DOMAIN) ?>")' />
 					</form>
 					<?php endif; ?>
 				</p>
 				<?php if($log_itemcnt>0): ?>
-				<h4><?php _e('Log of blocked spam comment.', SZMCF_DOMAIN); ?> (<?php _e('The latest', SZMCF_DOMAIN); ?> <?php echo $log_itemcnt ?> <?php _e('cases', SZMCF_DOMAIN); ?>)</h4>
+				[<?php _e('Log of blocked spam comment.', SZMCF_DOMAIN); ?> : <?php _e('The latest', SZMCF_DOMAIN); ?> <?php echo $log_itemcnt ?> <?php _e('cases', SZMCF_DOMAIN); ?>]<br>
 				
-
 				<div id="szmcf_loglist">
 					<?php
 					$logno = 0;
@@ -63,45 +73,24 @@ function szmcf_admin_notice() {
 					<div class="dathead">
 							<div class="dhead1">#<?php echo $logno ?>&nbsp;blocked at <?php echo $log_item['at_blocked'] ?></div>
 							<div class="dhead2">[From IP : <?php echo $log_item['ip'] ?>]</div>
-							<div class="dhead3">Rules :  <?php echo $log_item['rules'] ?></div>
+							<div class="dhead3">[<a href="<?php echo get_permalink( $log_item['post_ID'] ) ?>">Post ID=<?php echo $log_item['post_ID'] ?></a>]</div>
+							<div class="dhead4">Rules :  <?php echo $log_item['rules'] ?></div>
 					</div>
 					<div class="ditail">
-						<div class="ddtail1">
-						<p>
-						<?php echo htmlspecialchars($log_item['inp_email']) ?>
-						</p>
-						<p>
-						<?php echo htmlspecialchars($log_item['inp_url']) ?>
-						</p>
-						<p>
-						<?php echo htmlspecialchars($log_item['comment']) ?>
-						</p>
-						</div>
-						<div class="ddtail2">
-							<?php
-							if ( current_user_can( 'edit_post', $log_item['post_ID'] ) ) {
-								$post_link = "<a href='" . get_edit_post_link( $log_item['post_ID'] ) . "'>";
-								$post_link .= get_the_title( $log_item['post_ID'] ) . '</a>';
-							} else {
-								$post_link = get_the_title( $log_item['post_ID'] );
-							}
-							// ---
-							$post_type_object = get_post_type_object( get_post_type( $log_item['post_ID']) );
+						<table>
+							<tr>
+								<th class="field_name">field name</th>
+								<th style='text-align: center'>input data</th>
+							</tr>
+							<?php 
+							foreach( $log_item['post_data_array'] as $key=>$value){
 							?>
-							<div class="response-links">
-									<?php echo $post_link ?><br>
-									<strong>
-										<?php
-										$_pending_count_temp = get_pending_comments_num( array( $log_item['post_ID'] ) );
-										$pending_comments = $_pending_count_temp[$log_item['post_ID']];
-										$pending_phrase = sprintf( __( '%s pending' ), number_format( $pending_comments ) );
-										?>
-										<a href="<?php echo esc_url( add_query_arg( 'p', $log_item['post_ID'], admin_url( 'edit-comments.php' ) ) ) ?>" title="<?php echo esc_attr( $pending_phrase )  ?>" class="post-com-count">
-											<span class="comment-count"><?php echo number_format_i18n( get_comments_number($log_item['post_ID']) ) ?></span></a>
-									</strong>
-									<a href="<?php echo get_permalink( $log_item['post_ID'] ) ?>"><?php echo $post_type_object->labels->view_item ?></a>
-							</div>
-						</div>
+								<tr>
+									<td class="post_key"><?php echo htmlspecialchars($key) ?></td>
+									<td class="post_value"><?php echo htmlspecialchars($value) ?></td>
+								</tr>
+							<?php } ?>
+						</table>
 					</div>
 					<?php
 					endforeach;
@@ -120,7 +109,7 @@ add_action('admin_notices', 'szmcf_admin_notice');
 
 function szmcf_display_screen_option() {
 	global $pagenow;
-	if ($pagenow == 'edit-comments.php'):
+	if ($pagenow == 'edit-comments.php'){
 		$user_id = get_current_user_id();
 		$szmcf_info_visibility = get_user_meta($user_id, 'szmcf_info_visibility', true);
 
@@ -137,6 +126,7 @@ function szmcf_display_screen_option() {
 			});
 		</script>
 		<form method="post" class="szmcf_screen_options_group" style="padding: 20px 0 5px 0;">
+			<h5>Sz Comment Filter</h5>
 			<input type="hidden" name="szmcf_option_submit" value="1" />
 			<label>
 				<input name="szmcf_info_visibility" type="checkbox" value="1" <?php echo $checked; ?> />
@@ -145,7 +135,7 @@ function szmcf_display_screen_option() {
 			<input type="submit" class="button" value="<?php _e('Apply'); ?>" />
 		</form>
 		<?php
-	endif; // end of if($pagenow == 'edit-comments.php')
+	}
 }
 
 
